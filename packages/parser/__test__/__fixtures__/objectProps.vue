@@ -3,9 +3,19 @@
 </template>
 
 <script>
-export default {
-  props: {
-    a: String,
+
+const anotherProps = {
+  e: {
+    type: Function,
+    default () {}
+  },
+  'g': {
+    type: String,
+    default: 'HELLO'
+  }
+}
+
+const otherProps = {
     b: [Number, String],
     c: {
       type: Object,
@@ -20,14 +30,13 @@ export default {
       }
     },
     d: 'null',
-    e: {
-      type: Function,
-      default () {}
-    },
-    'g': {
-      type: String,
-      default: 'HELLO'
-    }
+    ...anotherProps,
+}
+
+export default {
+  props: {
+    a: String,
+    ...otherProps,
   }
 }
 </script>
